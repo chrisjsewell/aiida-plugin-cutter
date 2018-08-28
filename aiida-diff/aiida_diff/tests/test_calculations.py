@@ -2,23 +2,7 @@
 
 """
 import os
-import pytest
-from aiida.utils.fixtures import fixture_manager
 import aiida_diff.tests as tests
-
-
-@pytest.fixture(scope='session')
-def aiida_profile():
-    """setup a test profile for the duration of the tests"""
-    with fixture_manager() as fixture_mgr:
-        yield fixture_mgr
-
-
-@pytest.fixture(scope='function')
-def new_database(aiida_profile):
-    """clear the database after each test"""
-    yield
-    aiida_profile.reset_db()
 
 
 def test_submit(new_database):
