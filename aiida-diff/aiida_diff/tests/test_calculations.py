@@ -23,9 +23,9 @@ def test_submit(new_database):
 
     # set up calculation
     calc = code.new_calc()
-    calc.label = "aiida_diff test"
-    calc.description = "Test job submission with the aiida_diff plugin"
-    calc.set_max_wallclock_seconds(30)
+    # calc.label = "aiida_diff test"
+    # calc.description = "Test job submission with the aiida_diff plugin"
+    # calc.set_max_wallclock_seconds(30)
     calc.set_withmpi(False)
     calc.set_resources({"num_machines": 1, "num_mpiprocs_per_machine": 1})
 
