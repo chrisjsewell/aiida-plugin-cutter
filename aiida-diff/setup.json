@@ -11,7 +11,7 @@
     "version": "0.1.0a0",
     "entry_points": {
         "aiida.data": [
-            "diff = aiida_diff.data:DiffParameters"
+            "diff = aiida_diff.data.diffparams:DiffParameters"
         ],
         "aiida.calculations": [
             "diff = aiida_diff.calculations:DiffCalculation"
