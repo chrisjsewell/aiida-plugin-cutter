@@ -14,7 +14,7 @@
   hooks:
   - id: prospector
     language: system
-    exclude: '^(tests/)|(examples/)'
+    exclude: '^({{cookiecutter.module_name}}/tests/)|(examples/)'
 
 
 - repo: local

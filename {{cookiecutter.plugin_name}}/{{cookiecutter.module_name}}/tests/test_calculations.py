@@ -21,11 +21,13 @@ def new_database(aiida_profile):
     aiida_profile.reset_db()
 
 
-def test_submit(new_database):        
+def test_submit(new_database):
+    """test submission of code"""
+    from aiida.orm.data.singlefile import SinglefileData
+    from aiida.common.folders import SandboxFolder
+
     # Set up code, if it does not exist
     code = tests.get_code(entry_point='{{cookiecutter.entry_point_prefix}}')
-
-    from aiida.orm.data.singlefile import SinglefileData
 
     # Prepare input parameters
     from aiida.orm import DataFactory
@@ -51,3 +53,8 @@ def test_submit(new_database):
     calc.submit()
     print("submitted calculation; calc=Calculation(uuid='{}') # ID={}"\
             .format(calc.uuid,calc.dbnode.pk))
+
+    # output input files and scripts to temporary folder
+    with SandboxFolder() as folder:
+        subfolder, script_filename = calc.submit_test(folder=folder)
+        print("inputs created successfully at {}".format(subfolder.abspath))
