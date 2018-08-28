@@ -19,7 +19,7 @@ def new_database(aiida_profile):
     aiida_profile.reset_db()
 
 
-def test_submit(new_database)        
+def test_submit(new_database):        
     # Set up code, if it does not exist
     code = tests.get_code(entry_point='{{cookiecutter.entry_point_prefix}}')
 
