@@ -50,9 +50,6 @@ def test_submit(new_database):
     calc.use_file2(file2)
 
     calc.store_all()
-    calc.submit()
-    print("submitted calculation; calc=Calculation(uuid='{}') # ID={}"\
-            .format(calc.uuid,calc.dbnode.pk))
 
     # output input files and scripts to temporary folder
     with SandboxFolder() as folder:
