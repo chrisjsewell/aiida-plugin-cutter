@@ -27,6 +27,12 @@ env:
   - TEST_AIIDA_BACKEND: django
     TEST_TYPE: tests
     AIIDA_BRANCH: develop
+    
+  allow_failures: 
+  - PLUGIN_DIR: aiida-diff
+    TEST_AIIDA_BACKEND: django
+    TEST_TYPE: tests
+    AIIDA_BRANCH: develop
 
 install:
 # Upgrade pip setuptools and wheel
