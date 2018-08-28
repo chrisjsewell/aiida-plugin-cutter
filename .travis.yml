@@ -24,6 +24,9 @@ env:
     READTHEDOCS: 'True'
   - TEST_AIIDA_BACKEND: django
     TEST_TYPE: pre-commit
+  - TEST_AIIDA_BACKEND: django
+    TEST_TYPE: tests
+    AIIDA_BRANCH: develop
 
 install:
 # Upgrade pip setuptools and wheel
@@ -31,6 +34,15 @@ install:
 - pip install cookiecutter
 - cookiecutter --no-input .
 - pip install -e ${PLUGIN_DIR}[docs,pre-commit,testing]
+- >
+  if [[ ! -z "${AIIDA_BRANCH}" ]]; then
+    cur_path="$(pwd)";
+    cd ..;
+    git clone --branch=${AIIDA_BRANCH} https://github.com/aiidateam/aiida_core.git;
+    cd aiida_core;
+    pip install -U .[testing];
+    cd "$cur_path";
+  fi
 
 script:
 - .travis-data/script.sh
