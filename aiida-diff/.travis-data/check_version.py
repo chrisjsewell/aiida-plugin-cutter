@@ -1,6 +1,6 @@
 """Check that version numbers match.
 
-Check version number in setup.json and {{cookiecutter.module_name}}/__init__.py and make sure
+Check version number in setup.json and aiida_diff/__init__.py and make sure
 they match.
 """
 import os
@@ -17,15 +17,15 @@ with open(setup_path) as f:
 
 # Get version from python package
 sys.path.insert(0, os.path.join(this_path, os.pardir))
-import {{cookiecutter.module_name}}  # pylint: disable=wrong-import-position
-version = {{cookiecutter.module_name}}.__version__
+import aiida_diff  # pylint: disable=wrong-import-position
+version = aiida_diff.__version__
 
 if version != setup_content['version']:
     print("Version number mismatch detected:")
     print("Version number in '{}': {}".format(setup_fname,
                                               setup_content['version']))
     print("Version number in '{}/__init__.py': {}".format(
-        '{{cookiecutter.module_name}}', version))
+        'aiida_diff', version))
     sys.exit(1)
 
 # Overwrite version in setup.json

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Sphinx configuration for {{cookiecutter.plugin_name}}
+# Sphinx configuration for aiida-diff
 #
 # This file is execfile()d with the current directory set to its
 # containing dir.
@@ -14,7 +14,7 @@
 import os
 import sys
 import time
-import {{cookiecutter.module_name}}
+import aiida_diff
 
 # -- AiiDA-related setup --------------------------------------------------
 
@@ -91,9 +91,9 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'{{cookiecutter.plugin_name}}'
-copyright_first_year = "{{cookiecutter.year}}"
-copyright_owners = "{{cookiecutter.author}}"
+project = u'aiida-diff'
+copyright_first_year = "2018"
+copyright_owners = "The AiiDA developers group"
 
 current_year = str(time.localtime().tm_year)
 copyright_year_string = current_year if current_year == copyright_first_year else "{}-{}".format(
@@ -107,7 +107,7 @@ copyright = u'{}, {}. All rights reserved'.format(copyright_year_string,
 # built documents.
 #
 # The full version, including alpha/beta/rc tags.
-release = {{cookiecutter.module_name}}.__version__
+release = aiida_diff.__version__
 # The short X.Y version.
 version = '.'.join(release.split('.')[:2])
 
@@ -234,7 +234,7 @@ html_show_sourcelink = False
 # If true, an OpenSearch description file will be output, and all pages will
 # contain a <link> tag referring to it.  The value of this option must be the
 # base URL from which the finished HTML is served.
-html_use_opensearch = 'http://{{cookiecutter.plugin_name}}.readthedocs.io'
+html_use_opensearch = 'http://aiida-diff.readthedocs.io'
 
 # This is the file name suffix for HTML files (e.g. ".xhtml").
 #html_file_suffix = None
@@ -254,7 +254,7 @@ html_search_language = 'en'
 #html_search_scorer = 'scorer.js'
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = '{{cookiecutter.plugin_name}}-doc'
+htmlhelp_basename = 'aiida-diff-doc'
 
 # -- Options for LaTeX output ---------------------------------------------
 

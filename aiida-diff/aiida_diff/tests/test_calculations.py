@@ -4,7 +4,7 @@
 import os
 import pytest
 from aiida.utils.fixtures import fixture_manager
-import {{cookiecutter.module_name}}.tests as tests
+import aiida_diff.tests as tests
 
 
 @pytest.fixture(scope='session')
@@ -27,11 +27,11 @@ def test_submit(new_database):
     from aiida.common.folders import SandboxFolder
 
     # Set up code, if it does not exist
-    code = tests.get_code(entry_point='{{cookiecutter.entry_point_prefix}}')
+    code = tests.get_code(entry_point='diff')
 
     # Prepare input parameters
     from aiida.orm import DataFactory
-    DiffParameters = DataFactory('{{cookiecutter.entry_point_prefix}}')
+    DiffParameters = DataFactory('diff')
     parameters = DiffParameters({'ignore-case': True})
 
     file1 = SinglefileData(file=os.path.join(tests.TEST_DIR, 'file1.txt'))
@@ -39,8 +39,8 @@ def test_submit(new_database):
 
     # set up calculation
     calc = code.new_calc()
-    calc.label = "{{cookiecutter.module_name}} test"
-    calc.description = "Test job submission with the {{cookiecutter.module_name}} plugin"
+    calc.label = "aiida_diff test"
+    calc.description = "Test job submission with the aiida_diff plugin"
     calc.set_max_wallclock_seconds(30)
     calc.set_withmpi(False)
     calc.set_resources({"num_machines": 1, "num_mpiprocs_per_machine": 1})

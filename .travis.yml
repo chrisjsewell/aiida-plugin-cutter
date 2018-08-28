@@ -28,8 +28,8 @@ env:
 install:
 # Upgrade pip setuptools and wheel
 - pip install -U pip wheel setuptools
-- pip install cookiecutter
-- cookiecutter --no-input .
+# - pip install cookiecutter
+# - cookiecutter --no-input .
 - pip install -e ${PLUGIN_DIR}[pre-commit,testing,docs]
 
 script:

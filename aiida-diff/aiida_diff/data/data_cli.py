@@ -5,9 +5,9 @@ from aiida.cmdline.dbenv_lazyloading import load_dbenv_if_not_loaded
 
 
 # See aiida.cmdline.data entry point in setup.json
-@data_cmd.group('{{cookiecutter.entry_point_prefix}}')
+@data_cmd.group('diff')
 def cli():
-    """Command line interface for {{cookiecutter.plugin_name}}"""
+    """Command line interface for aiida-diff"""
     pass
 
 
@@ -21,7 +21,7 @@ def list_():  # pylint: disable=redefined-builtin
 
     from aiida.orm.querybuilder import QueryBuilder
     from aiida.orm import DataFactory
-    DiffParameters = DataFactory('{{cookiecutter.entry_point_prefix}}')
+    DiffParameters = DataFactory('diff')
 
     qb = QueryBuilder()
     qb.append(DiffParameters)

@@ -1,16 +1,16 @@
-[![Build Status](https://travis-ci.org/{{ cookiecutter.github_user }}/{{ cookiecutter.repo_name}}.svg?branch=master)](https://travis-ci.org/{{ cookiecutter.github_user }}/{{ cookiecutter.repo_name}}) [![Docs status](https://readthedocs.org/projects/{{ cookiecutter.plugin_name }}/badge)](http://{{ cookiecutter.plugin_name }}.readthedocs.io/)
+[![Build Status](https://travis-ci.org/aiidateam/aiida-diff.svg?branch=master)](https://travis-ci.org/aiidateam/aiida-diff) [![Docs status](https://readthedocs.org/projects/aiida-diff/badge)](http://aiida-diff.readthedocs.io/)
 
-# {{ cookiecutter.plugin_name }}
+# aiida-diff
 
-{{ cookiecutter.short_description }}
+AiiDA demo plugin that computes the difference between two files.
 
 Templated using the [AiiDA plugin cutter](https://github.com/aiidateam/aiida-plugin-cutter).
 
 ## Installation
 
 ```shell
-git clone https://github.com/{{ cookiecutter.github_user }}/{{ cookiecutter.repo_name}} .
-cd {{ cookiecutter.repo_name }}
+git clone https://github.com/aiidateam/aiida-diff .
+cd aiida-diff
 pip install -e .  # also installs aiida, if missing (but not postgres)
 #pip install -e .[pre-commit,testing] # install extras for more features
 verdi quicksetup  # better to set up a new profile
@@ -29,9 +29,9 @@ verdi run submit.py        # submit test calculation
 verdi calculation list -a  # check status of calculation
 ```
 
-If you have already set up your own {{cookiecutter.module_name}} code using `verdi code setup`, you may want to try the following command:
+If you have already set up your own aiida_diff code using `verdi code setup`, you may want to try the following command:
 ```
-{{cookiecutter.entry_point_prefix}}-submit  # uses {{cookiecutter.module_name}}.cli
+diff-submit  # uses aiida_diff.cli
 ```
 
 ## Tests
@@ -46,8 +46,4 @@ python manage.py
 
 MIT
 
-{%if cookiecutter.contact_email!=""%}
-## Contact
 
-{{ cookiecutter.contact_email }}
-{%endif%}

@@ -12,7 +12,7 @@ TEST_DIR = os.path.dirname(os.path.realpath(__file__))
 TEST_COMPUTER = 'localhost-test'
 
 executables = {
-    '{{cookiecutter.entry_point_prefix}}': 'diff',
+    'diff': 'diff',
 }
 
 
@@ -66,7 +66,7 @@ def get_computer(name=TEST_COMPUTER):
 
         computer = Computer(
             name=name,
-            description='localhost computer set up by {{cookiecutter.module_name}} tests',
+            description='localhost computer set up by aiida_diff tests',
             hostname=TEST_COMPUTER,
             workdir=tempfile.mkdtemp(),
             transport_type='local',

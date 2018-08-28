@@ -7,19 +7,19 @@ List of modules provided by the plugin.
 Data
 ++++
 
-.. automodule:: {{cookiecutter.module_name}}.data
+.. automodule:: aiida_diff.data
    :members:
 
 Calculations
 ++++++++++++
 
-.. automodule:: {{cookiecutter.module_name}}.calculations
+.. automodule:: aiida_diff.calculations
    :members:
 
 Parsers
 +++++++
 
-.. automodule:: {{cookiecutter.module_name}}.parsers
+.. automodule:: aiida_diff.parsers
    :members:
 
 

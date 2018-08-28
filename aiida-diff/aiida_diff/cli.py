@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Command line interface (cli) for {{cookiecutter.module_name}}.
+Command line interface (cli) for aiida_diff.
 
 Command line interface for plugin-specific tasks.
 
@@ -11,7 +11,7 @@ points like "aiida.cmdline.data" in setup.json.
 import os
 import click
 from aiida.cmdline.dbenv_lazyloading import load_dbenv_if_not_loaded
-import {{cookiecutter.module_name}}.tests as tests
+import aiida_diff.tests as tests
 
 
 @click.command('')
@@ -23,7 +23,7 @@ def submit(codelabel, submit):
     This command is based on examples/submit.py, but adds flexibility in the
     selected code/computer.
 
-    Run ``{{cookiecutter.entry_point_prefix}}-submit --help`` to see options.
+    Run ``diff-submit --help`` to see options.
     """
     load_dbenv_if_not_loaded(
     )  # Important to load the dbenv in the last moment
@@ -34,7 +34,7 @@ def submit(codelabel, submit):
 
     # Prepare input parameters
     from aiida.orm import DataFactory
-    DiffParameters = DataFactory('{{cookiecutter.entry_point_prefix}}')
+    DiffParameters = DataFactory('diff')
     parameters = DiffParameters({'ignore-case': True})
 
     file1 = SinglefileData(file=os.path.join(tests.TEST_DIR, 'file1.txt'))
@@ -42,8 +42,8 @@ def submit(codelabel, submit):
 
     # set up calculation
     calc = code.new_calc()
-    calc.label = "{{cookiecutter.module_name}} test"
-    calc.description = "Test job submission with the {{cookiecutter.module_name}} plugin"
+    calc.label = "aiida_diff test"
+    calc.description = "Test job submission with the aiida_diff plugin"
     calc.set_max_wallclock_seconds(30)
     calc.set_withmpi(False)
     calc.set_resources({"num_machines": 1, "num_mpiprocs_per_machine": 1})

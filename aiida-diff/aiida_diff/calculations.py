@@ -1,5 +1,5 @@
 """
-Calculations provided by {{cookiecutter.module_name}}.
+Calculations provided by aiida_diff.
 
 Register calculations via the "aiida.calculations" entry point in setup.json.
 """
@@ -11,7 +11,7 @@ from aiida.common.exceptions import (InputValidationError, ValidationError)
 from aiida.common.datastructures import (CalcInfo, CodeInfo)
 from aiida.orm import DataFactory
 
-DiffParameters = DataFactory('{{cookiecutter.entry_point_prefix}}')
+DiffParameters = DataFactory('diff')
 
 
 class DiffCalculation(JobCalculation):
@@ -30,8 +30,8 @@ class DiffCalculation(JobCalculation):
         # reuse base class function
         super(DiffCalculation, self)._init_internal_params()
 
-        # {{cookiecutter.entry_point_prefix}}.product entry point defined in setup.json
-        self._default_parser = '{{cookiecutter.entry_point_prefix}}'
+        # diff.product entry point defined in setup.json
+        self._default_parser = 'diff'
 
     @classproperty
     def _use_methods(cls):
