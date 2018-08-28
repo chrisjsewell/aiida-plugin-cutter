@@ -1,48 +1,49 @@
-# AiiDA plugin cutter
+[![Build Status](https://travis-ci.org/aiidateam/aiida-diff.svg?branch=master)](https://travis-ci.org/aiidateam/aiida-diff) [![Docs status](https://readthedocs.org/projects/aiida-diff/badge)](http://aiida-diff.readthedocs.io/)
 
-Cookie cutter recipe for [AiiDA](http://www.aiida.net) plugins.
+# aiida-diff
 
-The fastest most convenient way for getting started with developing AiiDA plugins.
+AiiDA demo plugin that computes the difference between two files.
+
+Templated using the [AiiDA plugin cutter](https://github.com/aiidateam/aiida-plugin-cutter).
+
+## Installation
+
+```shell
+git clone https://github.com/aiidateam/aiida-diff .
+cd aiida-diff
+pip install -e .  # also installs aiida, if missing (but not postgres)
+#pip install -e .[pre-commit,testing] # install extras for more features
+verdi quicksetup  # better to set up a new profile
+verdi calculation plugins  # should now show your calclulation plugins
+```
 
 ## Usage
 
-    pip install cookiecutter
-    cookiecutter https://github.com/aiidateam/aiida-plugin-cutter.git
+Here goes a complete example of how to submit a test calculation using this plugin.
 
-![Demo](https://image.ibb.co/ct6rL8/aiida_plugin_cutter.gif "The fastest way to kickstart an AiiDA plugin.")
-
-This will produce the files and folder structure for your plugin,
-already adjusted for the name of your plugin.
-
-For the default output of the plugin cutter, see the [aiida-diff](https://github.com/ltalirz/aiida-diff) demo plugin.
-
-## Development
-
-The plugin cutter comes with rather strict continuous integration tests which
-
- * test that the cookiecutter recipe works
- * test that the plugin can be installed
- * test that the unit test(s) of the plugin run
- * test that the code of the plugin confirms to coding standards
-
-Particularly the last test is very easy to break.
-In order to check your syntax run
+A quick demo of how to submit a calculation:
+```shell
+verdi daemon start         # make sure the daemon is running
+cd examples
+verdi run submit.py        # submit test calculation
+verdi calculation list -a  # check status of calculation
 ```
-cookiecutter --no-input -f .
-pip install -e aiida-diff[docs,pre-commit,testing]
-cd aiida-diff
-git init && git add -A
-pre-commit install
-pre-commit run
-```
-or simply: `./check-syntax.sh`
 
+If you have already set up your own aiida_diff code using `verdi code setup`, you may want to try the following command:
+```
+diff-submit  # uses aiida_diff.cli
+```
+
+## Tests
+
+The following will discover and run all unit test:
+```shell
+pip install -e .[testing]
+python manage.py
+```
 
 ## License
 
 MIT
 
-## Contact
 
-Please report issues to the GitHub issue tracker. Other inquiries may be
-directed to the [AiiDA mailinglist](http://www.aiida.net/mailing-list/).

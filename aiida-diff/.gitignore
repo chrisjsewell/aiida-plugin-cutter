@@ -1,8 +1,0 @@
-*.pyc
-*.swo
-*.swp
-~*
-*~
-.project
-*.egg*
-.DS_Store
