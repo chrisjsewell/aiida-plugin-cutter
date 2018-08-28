@@ -1,8 +1,10 @@
 """ Tests for calculations
 
 """
-import {{cookiecutter.module_name}}.tests as tests
 import os
+import pytest
+from aiida.utils.fixtures import fixture_manager
+import {{cookiecutter.module_name}}.tests as tests
 
 
 @pytest.fixture(scope='session')
